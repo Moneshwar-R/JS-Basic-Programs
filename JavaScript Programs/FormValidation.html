@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title> Form Validation </title>
+</head>
+<body>
+<form action="ProcessData.html" method="get" onclick="return validate()" onreset="return reset()">
+<label> Enter Your Name: </label>
+<input type="text" id="tn" name="namebox"></input> <span id="stn"></span> <br><br>
+<label> Enter Your Password: </label>
+<input type="password" id="pass" name="passbox"></input> <span id="spass"></span> <br><br>
+<label> Confirm Your Password: </label>
+<input type="password" id="cpass" name="cpassbox"></input> <span id="scpass"></span> <br><br>
+<label> Choose the Gender: </label>
+Male<input type="radio" value="m" id="mr" name="genderbtn"> </input> 
+Female<input type="radio" value="f" id="fm" name="genterbtn"> </input> <span id="sgender"></span> <br><br>
+<select id="course" name="coursename"> 
+<option value="-1"> ---Select Course--- </option> 
+<option value="c"> C++ Language </option> 
+<option value="dsa"> DSA </option>
+<option value="cp"> Competitive Programming </option>
+</select> <span id="sselect"></span>
+<br><br>
+<input type="submit" value="Submit"></input> 
+<input type="reset" value="Reset"></input> 
+</form>
+
+
+<script type="text/javascript">
+function validate(){
+
+if(document.getElementById("tn").value===""){
+document.getElementById("stn").innerHTML="Name cannot be Empty!!!"
+document.getElementById("stn").style.color="red"
+return false
+}
+else{
+document.getElementById("stn").innerHTML="Accepted"
+document.getElementById("stn").style.color="green"
+}
+
+if(document.getElementById("pass").value===""){
+document.getElementById("spass").innerHTML="Password cannot be Empty!!!"
+document.getElementById("spass").style.color="red"
+return false
+}
+else{
+document.getElementById("spass").innerHTML="Accepted"
+document.getElementById("spass").style.color="green"
+}
+
+if(document.getElementById("cpass").value===""){
+document.getElementById("scpass").innerHTML="Confirm Password cannot be Empty!!!"
+document.getElementById("scpass").style.color="red"
+return false
+}
+else if(document.getElementById("pass").value!==document.getElementById("cpass").value){
+document.getElementById("scpass").innerHTML="Confirm Password and Password is not Same!!!"
+document.getElementById("scpass").style.color="red"
+return false
+}
+else{
+document.getElementById("scpass").innerHTML="Accepted"
+document.getElementById("scpass").style.color="green"
+}
+
+if(document.getElementById("mr").checked===false && document.getElementById("fm").checked===false){
+document.getElementById("sgender").innerHTML="Select Gender!!!"
+document.getElementById("sgender").style.color="red"
+return false
+}
+else{
+document.getElementById("sgender").innerHTML="Accepted"
+document.getElementById("sgender").style.color="green"
+}
+
+if(document.getElementById("course").value==="-1"){
+document.getElementById("sselect").innerHTML="Select Course!!!"
+document.getElementById("sselect").style.color="red"
+return false   
+}
+else{
+document.getElementById("sselect").innerHTML="Accepted" 
+document.getElementById("sselect").style.color="green"
+}
+
+return true
+}
+
+function reset(){
+document.getElementById("tn").innerHTML=""
+document.getElementById("pass").innerHTML=""
+document.getElementById("cpass").innerHTML=""
+document.getElementByID("mr").checked=false
+document.getElementByID("fm").checked=false
+document.getElementById("course").value="-1"
+document.getElementById("stn").innerHTML=""
+document.getElementById("spass").innerHTML=""  
+document.getElementById("scpass").innerHTML=""
+document.getElementById("sgender").innerHTML=""
+document.getElementById("sselect").innerHTML=""
+}
+</script>
+</body>
+</html>

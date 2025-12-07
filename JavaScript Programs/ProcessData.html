@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title> Process Data </title>
+</head>
+<body>
+    <script type="text/javascript">
+        var query=document.location.search
+        var data=new URLSearchParams(query)
+        document.write("Name: "+data.get("namebox")+"<br>")
+        document.write("Password:"+data.get("passbox")+"<br>")
+        document.write("Gender:"+data.get("genderbtn")+"<br>")
+        document.write("Course Selected:"+data.get("coursename")+"<br>")
+    </script>
+</body>
+</html>
